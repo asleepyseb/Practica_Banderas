@@ -16,6 +16,8 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.practica_banderas.ui.theme.Practica_BanderasTheme
+import com.example.practica_banderas.ui.theme.AzulFrancia
+import com.example.practica_banderas.ui.theme.RojoFrancia
 import com.example.practica_banderas.ui.theme.VerdeMexico
 import com.example.practica_banderas.ui.theme.RojoMexico
 import com.example.practica_banderas.R
@@ -28,31 +30,23 @@ fun BanderaScreen(modifier: Modifier = Modifier){
             modifier = Modifier
                 .weight(1f)
                 .fillMaxHeight()
-                .background(VerdeMexico)
+                .background(AzulFrancia)
+        )
+ 
+        Box(
+            modifier = Modifier
+                .weight(1f)
+                .fillMaxHeight()
+                .background(Color.White)
         )
 
         Box(
             modifier = Modifier
                 .weight(1f)
                 .fillMaxHeight()
-                .background(Color.White),
-            contentAlignment = Alignment.Center
-        ){
-            Image(
-                painter = painterResource(id = R.drawable.escudo_mexico),
-                contentDescription = "Escudo nacional",
-                modifier = Modifier.size(110.dp)
-            )
-        }
-
-        Box (
-            modifier = Modifier
-                .weight(1f)
-                .fillMaxHeight()
-                .background(RojoMexico)
+                .background(RojoFrancia)
         )
     }
-
 }
 
 
