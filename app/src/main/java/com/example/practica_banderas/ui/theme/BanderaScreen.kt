@@ -16,39 +16,39 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.practica_banderas.ui.theme.Practica_BanderasTheme
-import com.example.practica_banderas.ui.theme.AzulFrancia
-import com.example.practica_banderas.ui.theme.RojoFrancia
-import com.example.practica_banderas.ui.theme.VerdeMexico
-import com.example.practica_banderas.ui.theme.RojoMexico
+import com.example.practica_banderas.ui.theme.NegroAlemania
+import com.example.practica_banderas.ui.theme.RojoAlemania
+import com.example.practica_banderas.ui.theme.OroAlemania
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxWidth
 import com.example.practica_banderas.R
 
 
 @Composable
-fun BanderaScreen(modifier: Modifier = Modifier){
-    Row(modifier = modifier.fillMaxSize()){
+fun BanderaScreen(modifier: Modifier = Modifier) {
+    Column(modifier = modifier.fillMaxSize()) {
         Box(
             modifier = Modifier
                 .weight(1f)
-                .fillMaxHeight()
-                .background(AzulFrancia)
-        )
- 
-        Box(
-            modifier = Modifier
-                .weight(1f)
-                .fillMaxHeight()
-                .background(Color.White)
+                .fillMaxWidth()
+                .background(NegroAlemania)
         )
 
         Box(
             modifier = Modifier
                 .weight(1f)
-                .fillMaxHeight()
-                .background(RojoFrancia)
+                .fillMaxWidth()
+                .background(RojoAlemania)
+        )
+
+        Box(
+            modifier = Modifier
+                .weight(1f)
+                .fillMaxWidth()
+                .background(OroAlemania)
         )
     }
 }
-
 
 @Preview(showBackground = true)
 @Composable
