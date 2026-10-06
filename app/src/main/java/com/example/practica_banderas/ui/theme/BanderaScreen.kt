@@ -16,9 +16,9 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.practica_banderas.ui.theme.Practica_BanderasTheme
-import com.example.practica_banderas.ui.theme.NegroAlemania
-import com.example.practica_banderas.ui.theme.RojoAlemania
-import com.example.practica_banderas.ui.theme.OroAlemania
+import com.example.practica_banderas.ui.theme.AmarilloColombia
+import com.example.practica_banderas.ui.theme.AzulColombia
+import com.example.practica_banderas.ui.theme.RojoColombia
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import com.example.practica_banderas.R
@@ -29,23 +29,23 @@ fun BanderaScreen(modifier: Modifier = Modifier) {
     Column(modifier = modifier.fillMaxSize()) {
         Box(
             modifier = Modifier
-                .weight(1f)
+                .weight(2f)
                 .fillMaxWidth()
-                .background(NegroAlemania)
+                .background(AmarilloColombia)
         )
 
         Box(
             modifier = Modifier
                 .weight(1f)
                 .fillMaxWidth()
-                .background(RojoAlemania)
+                .background(AzulColombia)
         )
 
         Box(
             modifier = Modifier
                 .weight(1f)
                 .fillMaxWidth()
-                .background(OroAlemania)
+                .background(RojoColombia)
         )
     }
 }
