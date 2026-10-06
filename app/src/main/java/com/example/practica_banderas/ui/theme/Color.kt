@@ -12,3 +12,4 @@ val Pink40 = Color(0xFF7D5260)
 
 val AzulFrancia = Color(0xFF002395)
 val RojoFrancia = Color(0xFFED2939)
+

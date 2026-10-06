@@ -18,17 +18,21 @@ import androidx.compose.ui.unit.dp
 import com.example.practica_banderas.ui.theme.Practica_BanderasTheme
 import com.example.practica_banderas.ui.theme.AzulFrancia
 import com.example.practica_banderas.ui.theme.RojoFrancia
+import com.example.practica_banderas.ui.theme.VerdeMexico
+import com.example.practica_banderas.ui.theme.RojoMexico
+import com.example.practica_banderas.R
+
 
 @Composable
 fun BanderaScreen(modifier: Modifier = Modifier){
-    Row(modifier = modifier.fillMaxSize()) {
+    Row(modifier = modifier.fillMaxSize()){
         Box(
             modifier = Modifier
                 .weight(1f)
                 .fillMaxHeight()
                 .background(AzulFrancia)
         )
-
+ 
         Box(
             modifier = Modifier
                 .weight(1f)
@@ -44,6 +48,7 @@ fun BanderaScreen(modifier: Modifier = Modifier){
         )
     }
 }
+
 
 @Preview(showBackground = true)
 @Composable
