@@ -10,21 +10,20 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.constraintlayout.compose.ConstraintLayout
 import androidx.constraintlayout.compose.Dimension
-import com.example.practica_banderas.ui.theme.AzulFrancia
-import com.example.practica_banderas.ui.theme.RojoFrancia
-import com.example.practica_banderas.R
+import com.example.practica_banderas.ui.theme.VerdeItalia
+import com.example.practica_banderas.ui.theme.RojoItalia
 
 
 @Composable
 fun BanderaScreen(modifier: Modifier = Modifier) {
     ConstraintLayout(modifier = Modifier.fillMaxSize()) {
-        val(cajaAzul, cajaBlanca, cajaRoja) = createRefs()
+        val(cajaVerde, cajaBlanca, cajaRoja) = createRefs()
 
-        //caja azul
+        //caja verde
         Box(
             modifier = Modifier
-                .background(AzulFrancia)
-                .constrainAs(cajaAzul){
+                .background(VerdeItalia)
+                .constrainAs(cajaVerde){
                     top.linkTo(parent.top)
                     bottom.linkTo(parent.bottom)
                     start.linkTo(parent.start)
@@ -41,7 +40,7 @@ fun BanderaScreen(modifier: Modifier = Modifier) {
                 .constrainAs(cajaBlanca){
                     top.linkTo(parent.top)
                     bottom.linkTo(parent.bottom)
-                    start.linkTo(cajaAzul.end)
+                    start.linkTo(cajaVerde.end)
                     end.linkTo(cajaRoja.start)
                     width = Dimension.fillToConstraints
                     height = Dimension.fillToConstraints
@@ -51,7 +50,7 @@ fun BanderaScreen(modifier: Modifier = Modifier) {
         //caja roja
         Box(
             modifier = Modifier
-                .background(RojoFrancia)
+                .background(RojoItalia)
                 .constrainAs(cajaRoja){
                     top.linkTo(parent.top)
                     bottom.linkTo(parent.bottom)
