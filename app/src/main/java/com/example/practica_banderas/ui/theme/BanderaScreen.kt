@@ -10,38 +10,25 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.constraintlayout.compose.ConstraintLayout
 import androidx.constraintlayout.compose.Dimension
-import com.example.practica_banderas.ui.theme.VerdeItalia
-import com.example.practica_banderas.ui.theme.RojoItalia
+import com.example.practica_banderas.ui.theme.NegroAlemania
+import com.example.practica_banderas.ui.theme.RojoAlemania
+import com.example.practica_banderas.ui.theme.AmarilloAlemania
 
 
 @Composable
 fun BanderaScreen(modifier: Modifier = Modifier) {
     ConstraintLayout(modifier = Modifier.fillMaxSize()) {
-        val(cajaVerde, cajaBlanca, cajaRoja) = createRefs()
+        val(cajaNegra, cajaRoja, cajaAmarilla) = createRefs()
 
-        //caja verde
+        //caja negra
         Box(
             modifier = Modifier
-                .background(VerdeItalia)
-                .constrainAs(cajaVerde){
-                    top.linkTo(parent.top)
-                    bottom.linkTo(parent.bottom)
+                .background(NegroAlemania)
+                .constrainAs(cajaNegra){
                     start.linkTo(parent.start)
-                    end.linkTo(cajaBlanca.start)
-                    width = Dimension.fillToConstraints
-                    height = Dimension.fillToConstraints
-                }
-        )
-
-        //caja blanca
-        Box(
-            modifier = Modifier
-                .background(Color.White)
-                .constrainAs(cajaBlanca){
+                    end.linkTo(parent.end)
                     top.linkTo(parent.top)
-                    bottom.linkTo(parent.bottom)
-                    start.linkTo(cajaVerde.end)
-                    end.linkTo(cajaRoja.start)
+                    bottom.linkTo(cajaRoja.top)
                     width = Dimension.fillToConstraints
                     height = Dimension.fillToConstraints
                 }
@@ -50,14 +37,28 @@ fun BanderaScreen(modifier: Modifier = Modifier) {
         //caja roja
         Box(
             modifier = Modifier
-                .background(RojoItalia)
+                .background(RojoAlemania)
                 .constrainAs(cajaRoja){
-                    top.linkTo(parent.top)
-                    bottom.linkTo(parent.bottom)
-                    start.linkTo(cajaBlanca.end)
+                    start.linkTo(parent.start)
                     end.linkTo(parent.end)
+                    top.linkTo(cajaNegra.bottom)
+                    bottom.linkTo(cajaAmarilla.top)
                     width = Dimension.fillToConstraints
-                    height  = Dimension.fillToConstraints
+                    height = Dimension.fillToConstraints
+                }
+        )
+
+        //caja amarilla
+        Box(
+            modifier = Modifier
+                .background(AmarilloAlemania)
+                .constrainAs(cajaAmarilla){
+                    start.linkTo(parent.start)
+                    end.linkTo(parent.end)
+                    top.linkTo(cajaRoja.bottom)
+                    bottom.linkTo(parent.bottom)
+                    width = Dimension.fillToConstraints
+                    height = Dimension.fillToConstraints
                 }
         )
 
