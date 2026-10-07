@@ -10,6 +10,5 @@ val Purple40 = Color(0xFF6650a4)
 val PurpleGrey40 = Color(0xFF625b71)
 val Pink40 = Color(0xFF7D5260)
 
-val NegroAlemania = Color(0xFF000000)
-val RojoAlemania = Color(0xFFFF0000)
-val AmarilloAlemania = Color(0xFFFFCE00)
+val RojoEspana = Color(0xFFAA151B)
+val AmarilloEspana = Color(0xFFF1BF00)
