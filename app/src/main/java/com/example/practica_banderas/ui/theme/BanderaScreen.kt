@@ -1,5 +1,6 @@
 package com.example.practica_banderas.ui.theme
 
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -16,38 +17,34 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.example.practica_banderas.ui.theme.CelesteArgentina
+import com.example.practica_banderas.R
 
 
 @Composable
 fun BanderaScreen(modifier: Modifier = Modifier) {
        Column(modifier = modifier.fillMaxSize()) {
-           Row(
+           Box(
                modifier = Modifier
                    .weight(1f)
                    .fillMaxWidth()
-           ) {
-               Box(
-                   modifier = Modifier
-                       .weight(1f)
-                       .fillMaxHeight()
-                       .background(AzulChile),
-                   contentAlignment = Alignment.Center
-               ) {
-                   Icon(
-                       imageVector = Icons.Filled.Star,
-                       contentDescription = "Estrella",
-                       tint = Color.White,
-                       modifier = Modifier.size(120.dp)
-                   )
-               }
+                   .background(CelesteArgentina)
+           )
 
-               Box(
-                   modifier = Modifier
-                       .weight(2f)
-                       .fillMaxHeight()
-                       .background(Color.White)
+           Box(
+               modifier = Modifier
+                   .weight(1f)
+                   .fillMaxWidth()
+                   .background(Color.White),
+               contentAlignment = Alignment.Center
+           ){
+               Image(
+                   painter = painterResource(id = R.drawable.sol_argentina),
+                   contentDescription = "sol de mayo",
+                   modifier = Modifier.size(180.dp)
                )
            }
 
@@ -55,7 +52,7 @@ fun BanderaScreen(modifier: Modifier = Modifier) {
                modifier = Modifier
                    .weight(1f)
                    .fillMaxWidth()
-                   .background(RojoChile)
+                   .background(CelesteArgentina)
            )
        }
 }
