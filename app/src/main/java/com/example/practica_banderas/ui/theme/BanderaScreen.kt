@@ -1,48 +1,66 @@
 package com.example.practica_banderas.ui.theme
 
-import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.aspectRatio
-import androidx.compose.foundation.layout.fillMaxHeight
+import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.Path
 import androidx.compose.ui.tooling.preview.Preview
-import com.example.practica_banderas.ui.theme.RojoSuiza
+import kotlin.math.cos
+import kotlin.math.sin
+import com.example.practica_banderas.ui.theme.RojoTurquia
 
 @Composable
 fun BanderaScreen(modifier: Modifier = Modifier) {
-    Box(
-        modifier = modifier.fillMaxSize(),
-        contentAlignment = Alignment.Center
-    ) {
-        Box(
-            modifier = Modifier
-                .fillMaxWidth(0.9f)
-                .aspectRatio(1f)
-                .background(RojoSuiza)
-        ) {
-            Box(
-                modifier = Modifier
-                    .align(Alignment.Center)
-                    .fillMaxWidth(0.2f)
-                    .fillMaxHeight(0.62f)
-                    .background(Color.White)
-            )
+    Canvas(modifier = modifier.fillMaxSize()) {
+        drawRect(color = RojoTurquia)
 
-            Box(
-                modifier = Modifier
-                    .align(Alignment.Center)
-                    .fillMaxHeight(0.2f)
-                    .fillMaxWidth(0.62f)
-                    .background(Color.White)
-            )
+        // centro vertical de la pantalla
+        val cy = size.height / 2f
+
+
+        val rOut = size.height * 0.30f
+        drawCircle(
+            color = Color.White,
+            radius = rOut,
+            center = Offset(size.width * 0.38f, cy)
+        )
+
+        // circulo interior rojo desplazado a la derecha (hace el efecto de recorte)
+        drawCircle(
+            color = RojoTurquia,
+            radius = size.height * 0.24f,
+            center = Offset(size.width * 0.38f + size.height * 0.09f, cy)
+        )
+
+        // estrella de 5 puntas
+        val starCenterX = size.width * 0.65f
+        val starCenterY = cy
+        val rOutStar = size.height * 0.12f //radio picos exteriores
+        val rInStar = size.height * 0.05f  //radio picos interiores
+
+        val starPath = Path()
+        val points = 5
+        val angleStep = Math.PI / points
+        val startAngle = -Math.PI / 2.0 // -90 grados para que el primer pico apunte hacia arriba
+
+        // calcular los 10 puntos
+        for (i in 0 until points * 2) {
+            val r = if (i % 2 == 0) rOutStar else rInStar
+            val theta = startAngle + i * angleStep
+            val x = starCenterX + r * cos(theta).toFloat()
+            val y = starCenterY + r * sin(theta).toFloat()
+
+            if (i == 0) starPath.moveTo(x, y) else starPath.lineTo(x, y)
         }
+        starPath.close()
+
+        drawPath(path = starPath, color = Color.White)
     }
+
 }
 
 @Preview(showBackground = true)
