@@ -7,7 +7,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
-import com.example.practica_banderas.ui.theme.BanderaScreen
+import com.example.practica_banderas.ui.theme.PatitoPixelArtScreen
 import com.example.practica_banderas.ui.theme.Practica_BanderasTheme
 
 class MainActivity : ComponentActivity() {
@@ -19,7 +19,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background,
                 ) {
-                    BanderaScreen(modifier = Modifier.fillMaxSize())
+                    PatitoPixelArtScreen(modifier = Modifier.fillMaxSize())
                 }
             }
         }
