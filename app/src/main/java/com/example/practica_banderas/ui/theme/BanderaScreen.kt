@@ -1,69 +1,74 @@
 package com.example.practica_banderas.ui.theme
 
 import androidx.compose.foundation.Canvas
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.Offset
-import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Path
 import androidx.compose.ui.tooling.preview.Preview
-import kotlin.math.cos
-import kotlin.math.sin
-import com.example.practica_banderas.ui.theme.AzulCuba
-import com.example.practica_banderas.ui.theme.RojoCuba
+import com.example.practica_banderas.ui.theme.AzulSeychelles
+import com.example.practica_banderas.ui.theme.RojoSeychelles
+import com.example.practica_banderas.ui.theme.VerdeSeychelles
+import com.example.practica_banderas.ui.theme.AmarilloSeychelles
+
 
 @Composable
 fun BanderaScreen(modifier: Modifier = Modifier) {
-    Canvas(modifier = modifier.fillMaxSize().background(Color.White)) {
+    Canvas(modifier = modifier.fillMaxSize()) {
         val w = size.width
         val h = size.height
 
-        //franjas azules
-        val bandHeight = h / 5f
-        for (i in 0 until 5 step 2) {
-            drawRect(
-                color = AzulCuba,
-                topLeft = Offset(0f, i * bandHeight),
-                size = Size(w, bandHeight)
-            )
-        }
+        // el punto de origen para todas las franjas
+        val origin = Offset(0f, h)
 
-        //triangulo rojo
-        val triWidth = w * 0.45f
-        val trianglePath = Path().apply {
-            moveTo(0f, 0f)
-            lineTo(triWidth, h / 2f)
-            lineTo(0f, h)
+        //franja azul
+        val pathAzul = Path().apply {
+            moveTo(origin.x, origin.y)
+            lineTo(0f, 0f) //esquina superior izq
+            lineTo(w / 3f, 0f)
             close()
         }
-        drawPath(path = trianglePath, color = RojoCuba)
+        drawPath(path = pathAzul, color = AzulSeychelles)
 
-        // estrella Blanca centrada en el triángulo
-        val starCenterX = (0f + triWidth + 0f) / 3f
-        val starCenterY = h / 2f
-        val rOutStar = h * 0.12f
-        val rInStar = h * 0.05f
-
-        val starPath = Path()
-        val points = 5
-        val angleStep = Math.PI / points
-        val startAngle = -Math.PI / 2.0
-
-        for (i in 0 until points * 2) {
-            val r = if (i % 2 == 0) rOutStar else rInStar
-            val theta = startAngle + i * angleStep
-            val x = starCenterX + r * cos(theta).toFloat()
-            val y = starCenterY + r * sin(theta).toFloat()
-
-            if (i == 0) starPath.moveTo(x, y) else starPath.lineTo(x, y)
+        //franja amarilla
+        val pathAmarillo = Path().apply {
+            moveTo(origin.x, origin.y)
+            lineTo(w / 3f, 0f)
+            lineTo(w * (2f / 3f), 0f)
+            close()
         }
-        starPath.close()
+        drawPath(path = pathAmarillo, color = AmarilloSeychelles)
 
-        drawPath(path = starPath, color = Color.White)
+        //franja roja
+        val pathRojo = Path().apply {
+            moveTo(origin.x, origin.y)
+            lineTo(w * (2f / 3f), 0f)
+            lineTo(w, 0f) // Esquina superior derecha
+            lineTo(w, h / 3f)
+            close()
+        }
+        drawPath(path = pathRojo, color = RojoSeychelles)
+
+        //franja blanca
+        val pathBlanco = Path().apply {
+            moveTo(origin.x, origin.y)
+            lineTo(w, h / 3f)
+            lineTo(w, h * (2f / 3f))
+            close()
+        }
+        drawPath(path = pathBlanco, color = Color.White)
+
+        //franja verde
+        val pathVerde = Path().apply {
+            moveTo(origin.x, origin.y)
+            lineTo(w, h * (2f / 3f))
+            lineTo(w, h) //esquina inferior derecha
+            close()
+        }
+        drawPath(path = pathVerde, color = VerdeSeychelles)
     }
 }
 
