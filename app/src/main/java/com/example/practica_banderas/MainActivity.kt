@@ -1,3 +1,6 @@
+
+
+
 package com.example.practica_banderas
 
 import android.os.Bundle
@@ -7,21 +10,24 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
-import com.example.practica_banderas.ui.theme.PatitoPixelArtScreen
 import com.example.practica_banderas.ui.theme.Practica_BanderasTheme
+import com.example.banderascompose.Pikachu
+
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         setContent {
             Practica_BanderasTheme {
                 Surface(
                     modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colorScheme.background,
+                    color = MaterialTheme.colorScheme.background
                 ) {
-                    PatitoPixelArtScreen(modifier = Modifier.fillMaxSize())
+                    Pikachu()
                 }
             }
         }
     }
 }
+
